@@ -6,11 +6,11 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: ca
 
 framework:
     #esi: ~
-    #translator: { fallbacks: ['%locale%'] }
+    translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
     router:
         resource: '%kernel.project_dir%/app/config/routing.yml'
@@ -37,6 +37,8 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    globals:
+        main_brand_title: "%project_web_title%"
 
 # Doctrine Configuration
 doctrine:
@@ -69,7 +71,15 @@ swiftmailer:
     spool: { type: memory }
 
 # Easy Admin
-#easy_admin:
-#    entities:
+easy_admin:
+    site_name: "%project_web_title%"
+    design:
+        color_scheme: 'light'
+    entities:
+        Customer:
+            class: AppBundle\Entity\Customer
+            label: 'Clients'
+            list:
+                title: 'Llista'
 #        - AppBundle\Entity\Customer
 #        - AppBundle\Entity\Booking
