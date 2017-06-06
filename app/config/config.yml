@@ -70,3 +70,15 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+# Stof Doctrine
+stof_doctrine_extensions:
+    default_locale: "%locale%"
+    orm:
+        default:
+            softdeleteable: false
+            timestampable:  true
+            sluggable:      false
+            translatable:   false
+            sortable:       false
+            tree:           false
