@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             // Vendors
             new Hautelook\AliceBundle\HautelookAliceBundle(),
             new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
+            new Kami\BookingBundle\KamiBookingBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             // App
             new AppBundle\AppBundle(),
