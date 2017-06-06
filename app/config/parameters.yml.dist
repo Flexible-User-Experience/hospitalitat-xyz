@@ -15,6 +15,9 @@ parameters:
     mailer_user: ~
     mailer_password: ~
 
+    admin_user: ~
+    admin_passwd: ~
+
     project_web_title: "My title"
 
     # A secret key that's used to generate certain security-related tokens
