@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: easy_admin.yml }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -69,17 +70,3 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
-
-# Easy Admin
-easy_admin:
-    site_name: "%project_web_title%"
-    design:
-        color_scheme: 'light'
-    entities:
-        Customer:
-            class: AppBundle\Entity\Customer
-            label: 'Clients'
-            list:
-                title: 'Llista'
-#        - AppBundle\Entity\Customer
-#        - AppBundle\Entity\Booking

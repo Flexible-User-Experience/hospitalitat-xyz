@@ -1,0 +1,17 @@
+# Easy Admin
+easy_admin:
+    site_name: "%project_web_title%"
+    design:
+        color_scheme: 'dark'
+    entities:
+        Customer:
+            class: AppBundle\Entity\Customer
+            label: 'Clients'
+            list:
+                title: 'Llista'
+                fields:
+                    - { property: 'nif', label: 'DNI' }
+                    - { property: 'name', label: 'Nom' }
+                    - { property: 'surname', label: 'Cognoms' }
+                    - { property: 'email', label: 'Email' }
+                    - { property: 'phone', label: 'Telèfon' }
