@@ -9,3 +9,8 @@ AppBundle\Entity\Customer:
     postalCode: <postcode()>
     province: <state()>
     phone: <phoneNumber()>
+
+# Room
+AppBundle\Entity\Room:
+  room1:
+    name: La Carrova
