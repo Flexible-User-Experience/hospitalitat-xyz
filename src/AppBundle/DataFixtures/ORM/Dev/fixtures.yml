@@ -1,0 +1,11 @@
+# Customer
+AppBundle\Entity\Customer:
+  customer{1..10}:
+    name: <name()>
+    surname: <lastname()>
+    nif: <bothify('######?')>
+    email: <email()>
+    address: <streetAddress()>
+    postalCode: <postcode()>
+    province: <state()>
+    phone: <phoneNumber()>
