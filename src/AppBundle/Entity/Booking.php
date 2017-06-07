@@ -24,7 +24,7 @@ class Booking extends BaseClass
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var Room
@@ -32,31 +32,13 @@ class Booking extends BaseClass
      * @ORM\ManyToOne(targetEntity="Room", inversedBy="bookings")
      * @ORM\JoinColumn(name="property_id", referencedColumnName="id")
      */
-    private $item;
+    protected $item;
 
     /**
      *
      * Methods.
      *
      */
-
-    /**
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param int $id
-     * @return Booking
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-        return $this;
-    }
 
     /**
      * @return Room
