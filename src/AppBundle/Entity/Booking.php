@@ -2,8 +2,19 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 use Kami\BookingBundle\Entity\Booking as BaseClass;
 
+/**
+ * Class Booking
+ *
+ * @category Entity
+ * @package  AppBundle\Entity
+ * @author   Wils Iglesias <wiglesias83@gmail.com
+ *
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\BookingRepository")
+ * @ORM\Table(name="booking")
+ */
 class Booking extends BaseClass
 {
     /**
@@ -13,7 +24,7 @@ class Booking extends BaseClass
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $id;
+    private $id;
 
     /**
      * @var Room
@@ -21,7 +32,13 @@ class Booking extends BaseClass
      * @ORM\ManyToOne(targetEntity="Room", inversedBy="bookings")
      * @ORM\JoinColumn(name="property_id", referencedColumnName="id")
      */
-    protected $item;
+    private $item;
+
+    /**
+     *
+     * Methods.
+     *
+     */
 
     /**
      * @return int

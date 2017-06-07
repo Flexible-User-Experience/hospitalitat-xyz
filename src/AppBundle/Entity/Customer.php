@@ -8,6 +8,10 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * Customer
  *
+ * @category Entity
+ * @package  AppBundle\Entity
+ * @author   Wils Iglesias <wiglesias83@gmail.com
+ *
  * @ORM\Table(name="customer")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\CustomerRepository")
  */
@@ -93,6 +97,19 @@ class Customer
      * @Gedmo\Timestampable(on="update")
      */
     private $updatedAt;
+
+    /**
+     * @var Booking
+     *
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Booking")
+     */
+    private $booking;
+
+    /**
+     *
+     * Methods.
+     *
+     */
 
     /**
      * Get id
@@ -309,7 +326,7 @@ class Customer
      *
      * @return Customer
      */
-    public function setCreatedAt($createdAt)
+    public function setCreatedAt(\DateTime $createdAt)
     {
         $this->createdAt = $createdAt;
 
@@ -329,9 +346,29 @@ class Customer
      *
      * @return Customer
      */
-    public function setUpdatedAt($updatedAt)
+    public function setUpdatedAt(\DateTime $updatedAt)
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * @return Booking
+     */
+    public function getBooking()
+    {
+        return $this->booking;
+    }
+
+    /**
+     * @param Booking $booking
+     *
+     * @return Customer
+     */
+    public function setBooking($booking)
+    {
+        $this->booking = $booking;
 
         return $this;
     }

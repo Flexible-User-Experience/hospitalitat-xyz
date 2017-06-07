@@ -2,10 +2,15 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Room
+ *
+ * @category Entity
+ * @package  AppBundle\Entity
+ * @author   Wils Iglesias <wiglesias83@gmail.com
  *
  * @ORM\Table(name="room")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\RoomRepository")
@@ -28,6 +33,26 @@ class Room
      */
     private $name;
 
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Booking", mappedBy="item")
+     */
+    private $bookings;
+
+    /**
+     *
+     * Methods.
+     *
+     */
+
+    /**
+     * Room constructor.
+     */
+    public function __construct()
+    {
+        $this->bookings = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -62,5 +87,22 @@ class Room
     {
         return $this->name;
     }
-}
 
+    /**
+     * @return ArrayCollection
+     */
+    public function getBookings()
+    {
+        return $this->bookings;
+    }
+
+    /**
+     * @param ArrayCollection $bookings
+     * @return Room
+     */
+    public function setBookings($bookings)
+    {
+        $this->bookings = $bookings;
+        return $this;
+    }
+}

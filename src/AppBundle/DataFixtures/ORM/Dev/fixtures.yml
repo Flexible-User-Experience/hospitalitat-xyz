@@ -14,3 +14,8 @@ AppBundle\Entity\Customer:
 AppBundle\Entity\Room:
   room1:
     name: La Carrova
+
+# Booking
+AppBundle\Entity\Booking:
+  booking{1..5}:
+

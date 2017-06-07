@@ -82,3 +82,6 @@ stof_doctrine_extensions:
             translatable:   false
             sortable:       false
             tree:           false
+
+kami_booking:
+    entity_class: AppBundle\Entity\Booking
