@@ -15,3 +15,11 @@ easy_admin:
                     - { property: 'surname', label: 'Cognoms' }
                     - { property: 'email', label: 'Email' }
                     - { property: 'phone', label: 'Telèfon' }
+        Booking:
+            class: AppBundle\Entity\Booking
+            label: 'Reserves'
+            list:
+                title: 'Llista'
+                fields:
+                    - { property: 'start', label: 'Inici Reserva' }
+                    - { property: 'end', label: 'Fi Reserva' }
