@@ -6,10 +6,10 @@ use Doctrine\ORM\Mapping as ORM;
 use Kami\BookingBundle\Entity\Booking as BaseClass;
 
 /**
- * Class Booking
+ * Class Booking.
  *
  * @category Entity
- * @package  AppBundle\Entity
+ *
  * @author   Wils Iglesias <wiglesias83@gmail.com
  *
  * @ORM\Entity(repositoryClass="AppBundle\Repository\BookingRepository")
@@ -18,7 +18,7 @@ use Kami\BookingBundle\Entity\Booking as BaseClass;
 class Booking extends BaseClass
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -35,9 +35,7 @@ class Booking extends BaseClass
     protected $item;
 
     /**
-     *
      * Methods.
-     *
      */
 
     /**
@@ -50,11 +48,21 @@ class Booking extends BaseClass
 
     /**
      * @param Room $item
+     *
      * @return Booking
      */
     public function setItem($item)
     {
         $this->item = $item;
+
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getStart()->format('d/m/Y');
     }
 }
