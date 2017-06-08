@@ -4,16 +4,18 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * Customer
+ * Customer.
  *
  * @category Entity
- * @package  AppBundle\Entity
+ *
  * @author   Wils Iglesias <wiglesias83@gmail.com
  *
  * @ORM\Table(name="customer")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\CustomerRepository")
+ * @UniqueEntity("nif")
  */
 class Customer
 {
@@ -43,7 +45,7 @@ class Customer
     /**
      * @var string
      *
-     * @ORM\Column(name="nif", type="string", length=255)
+     * @ORM\Column(name="nif", type="string", length=255, unique=true)
      */
     private $nif;
 
@@ -106,13 +108,11 @@ class Customer
     private $booking;
 
     /**
-     *
      * Methods.
-     *
      */
 
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -122,7 +122,7 @@ class Customer
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
      *
@@ -136,7 +136,7 @@ class Customer
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */
@@ -146,7 +146,17 @@ class Customer
     }
 
     /**
-     * Set surname
+     * Get full name.
+     *
+     * @return string
+     */
+    public function getFullName()
+    {
+        return $this->name.' '.$this->surname;
+    }
+
+    /**
+     * Set surname.
      *
      * @param string $surname
      *
@@ -160,7 +170,7 @@ class Customer
     }
 
     /**
-     * Get surname
+     * Get surname.
      *
      * @return string
      */
@@ -170,7 +180,7 @@ class Customer
     }
 
     /**
-     * Set nif
+     * Set nif.
      *
      * @param string $nif
      *
@@ -184,7 +194,7 @@ class Customer
     }
 
     /**
-     * Get nif
+     * Get nif.
      *
      * @return string
      */
@@ -194,7 +204,7 @@ class Customer
     }
 
     /**
-     * Set email
+     * Set email.
      *
      * @param string $email
      *
@@ -208,7 +218,7 @@ class Customer
     }
 
     /**
-     * Get email
+     * Get email.
      *
      * @return string
      */
@@ -218,7 +228,7 @@ class Customer
     }
 
     /**
-     * Set address
+     * Set address.
      *
      * @param string $address
      *
@@ -232,7 +242,7 @@ class Customer
     }
 
     /**
-     * Get address
+     * Get address.
      *
      * @return string
      */
@@ -242,7 +252,7 @@ class Customer
     }
 
     /**
-     * Set postalCode
+     * Set postalCode.
      *
      * @param string $postalCode
      *
@@ -256,7 +266,7 @@ class Customer
     }
 
     /**
-     * Get postalCode
+     * Get postalCode.
      *
      * @return string
      */
@@ -266,7 +276,7 @@ class Customer
     }
 
     /**
-     * Set province
+     * Set province.
      *
      * @param string $province
      *
@@ -280,7 +290,7 @@ class Customer
     }
 
     /**
-     * Get province
+     * Get province.
      *
      * @return string
      */
@@ -290,7 +300,7 @@ class Customer
     }
 
     /**
-     * Set phone
+     * Set phone.
      *
      * @param string $phone
      *
@@ -304,7 +314,7 @@ class Customer
     }
 
     /**
-     * Get phone
+     * Get phone.
      *
      * @return string
      */
@@ -371,5 +381,13 @@ class Customer
         $this->booking = $booking;
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getNif().' · '.$this->getFullName();
     }
 }

@@ -9,6 +9,7 @@ AppBundle\Entity\Customer:
     postalCode: <postcode()>
     province: <state()>
     phone: <phoneNumber()>
+    booking: "@booking<current()>"
 
 # Room
 AppBundle\Entity\Room:
@@ -17,8 +18,7 @@ AppBundle\Entity\Room:
 
 # Booking
 AppBundle\Entity\Booking:
-  booking{1..5}:
+  booking{1..10}:
     item: "@room1"
     start: <dateTimeBetween('-2 months', '-1 months')>
     end: <dateTimeBetween('-1 months', '-5 days')>
-
