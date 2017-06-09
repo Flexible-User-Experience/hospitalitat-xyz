@@ -47,6 +47,7 @@ class AppExtension extends \Twig_Extension
     public function checkAvailabilityFunction($day, $month, $year)
     {
         $startDay = new \DateTime();
+        $startDay->setDate($year, $month, $day);
         $booking = $this->em->getRepository('AppBundle:Booking')->findBookingByStartDay($startDay);
         if ($booking) {
             return 'ui inverted red table';
