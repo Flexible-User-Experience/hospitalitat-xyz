@@ -9,13 +9,22 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/", name="front_homepage")
      */
-    public function indexAction(Request $request)
+    public function indexAction()
     {
-        // replace this example code with whatever you need
-        return $this->render(':frontend:index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
+        return $this->render(':frontend:index.html.twig');
+    }
+
+    /**
+     * @Route("/reserva/{day}/{month}/{year}", name="front_booking")
+     *
+     * @param Request $request
+     * @param int     $day
+     * @param int     $month
+     * @param int     $year
+     */
+    public function bookingAction(Request $request, $day, $month, $year)
+    {
     }
 }

@@ -33,7 +33,7 @@ class AppExtension extends \Twig_Extension
     public function getFunctions()
     {
         return array(
-            new \Twig_SimpleFunction('checkAvailability', array($this, 'checkAvailabilityFunction')),
+            new \Twig_SimpleFunction('drawTdAvailavility', array($this, 'drawTdAvailavilityFunction')),
         );
     }
 
@@ -44,16 +44,16 @@ class AppExtension extends \Twig_Extension
      *
      * @return string
      */
-    public function checkAvailabilityFunction($day, $month, $year)
+    public function drawTdAvailavilityFunction($day, $month, $year)
     {
         $startDay = new \DateTime();
         $startDay->setDate($year, $month, $day);
         $booking = $this->em->getRepository('AppBundle:Booking')->findBookingByStartDay($startDay);
         if ($booking) {
-            return 'ui inverted red table';
+            return '<td class="ui inverted red table">'.$day.'</td>';
         }
 
-        return 'ui inverted green table';
+        return '<td class="ui inverted green table"><a href="">'.$day.'</a></td>';
     }
 
     /**
