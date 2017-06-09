@@ -3,6 +3,7 @@
 namespace AppBundle\Twig\Extension;
 
 use Doctrine\ORM\EntityManager;
+use Symfony\Component\Routing\RouterInterface;
 
 /**
  * Class AppExtension.
@@ -18,13 +19,20 @@ class AppExtension extends \Twig_Extension
     private $em;
 
     /**
+     * @var RouterInterface
+     */
+    private $router;
+
+    /**
      * AppExtension constructor.
      *
-     * @param EntityManager $em
+     * @param EntityManager   $em
+     * @param RouterInterface $router
      */
-    public function __construct(EntityManager $em)
+    public function __construct(EntityManager $em, RouterInterface $router)
     {
         $this->em = $em;
+        $this->router = $router;
     }
 
     /**
@@ -53,7 +61,7 @@ class AppExtension extends \Twig_Extension
             return '<td class="ui inverted red table">'.$day.'</td>';
         }
 
-        return '<td class="ui inverted green table"><a href="">'.$day.'</a></td>';
+        return '<td class="ui inverted green table"><a href="'.$this->router->generate('front_booking', ['day' => $day, 'month' => $month, 'year' => $year]).'">'.$day.'</a></td>';
     }
 
     /**

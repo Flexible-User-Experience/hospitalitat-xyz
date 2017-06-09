@@ -38,6 +38,6 @@ services:
     app.twig_extension:
         class: AppBundle\Twig\Extension\AppExtension
         public: false
-        arguments: [ "@doctrine.orm.entity_manager" ]
+        arguments: [ "@doctrine.orm.entity_manager", "@router" ]
         tags:
             - { name: twig.extension }
