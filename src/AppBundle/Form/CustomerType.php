@@ -133,8 +133,7 @@ class CustomerType extends AbstractType
                 array(
                     'label' => 'Enviar',
                     'attr' => array(
-                        'class' => 'btn btn-primary no-m-bottom',
-                        'style' => 'margin-bottom: -15px',
+                        'class' => 'ui primary button',
                     ),
                 )
             );
