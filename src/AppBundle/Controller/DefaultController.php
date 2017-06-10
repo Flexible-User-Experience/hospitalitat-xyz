@@ -2,6 +2,8 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Customer;
+use AppBundle\Form\CustomerType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,10 +31,31 @@ class DefaultController extends Controller
      */
     public function bookingAction(Request $request, $day, $month, $year)
     {
+        $booking = new Customer();
+        $form = $this->createForm(CustomerType::class, $booking);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Set frontend flahs message
+            $this->addFlash(
+                'notice',
+                'La teva reserva s\'ha realitzat exitosament'
+            );
+            // Persist new booking into DB
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($booking);
+            $em->flush();
+            // Clean up new form in production envioronment
+            if ($this->get('kernel')->getEnvironment() == 'prod') {
+                $booking = new CustomerType();
+                $form = $this->createForm(CustomerType::class, $booking);
+            }
+        }
+
         return $this->render(':frontend:booking.html.twig', [
             'day' => $day,
             'month' => $month,
             'year' => $year,
+            'bookingForm' => $form->createView(),
         ]);
     }
 }
