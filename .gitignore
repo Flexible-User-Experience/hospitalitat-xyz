@@ -1,7 +1,10 @@
 /.web-server-pid
 /app/config/parameters.yml
 /build/
+# PHPUnit
+/app/phpunit.xml
 /phpunit.xml
+#j Cache and Logs
 /var/*
 !/var/cache
 /var/cache/*
@@ -15,3 +18,7 @@
 !var/SymfonyRequirements.php
 /vendor/
 /web/bundles/
+# Composer PHAR
+/composer.phar
+# Custom script
+/dbreset.sh
