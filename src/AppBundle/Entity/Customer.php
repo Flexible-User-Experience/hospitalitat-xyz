@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
@@ -32,6 +33,7 @@ class Customer
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $name;
 
@@ -39,6 +41,7 @@ class Customer
      * @var string
      *
      * @ORM\Column(name="surname", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $surname;
 
@@ -46,6 +49,7 @@ class Customer
      * @var string
      *
      * @ORM\Column(name="nif", type="string", length=255, unique=true)
+     * @Assert\NotBlank()
      */
     private $nif;
 
@@ -53,6 +57,8 @@ class Customer
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255)
+     * @Assert\Email(strict=true, checkMX=true, checkHost=true)
+     * @Assert\NotBlank()
      */
     private $email;
 
@@ -60,6 +66,7 @@ class Customer
      * @var string
      *
      * @ORM\Column(name="address", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $address;
 
@@ -67,6 +74,7 @@ class Customer
      * @var string
      *
      * @ORM\Column(name="postalCode", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $postalCode;
 
@@ -74,6 +82,7 @@ class Customer
      * @var string
      *
      * @ORM\Column(name="province", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $province;
 

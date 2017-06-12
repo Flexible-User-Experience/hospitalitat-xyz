@@ -6,14 +6,12 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Class CustomerType
+ * Class CustomerType.
  *
- * @package AppBundle\Form
  *
  * @author  Wils Iglesias <wiglesias83@gmail.com>
  */
@@ -31,9 +29,6 @@ class CustomerFormType extends AbstractType
                     'attr' => array(
                         'placeholder' => 'DNI *',
                     ),
-                    'constraints' => array(
-                        new Assert\NotBlank(),
-                    ),
                 )
             )
             ->add(
@@ -44,9 +39,6 @@ class CustomerFormType extends AbstractType
                     'required' => true,
                     'attr' => array(
                         'placeholder' => 'Nom *',
-                    ),
-                    'constraints' => array(
-                        new Assert\NotBlank(),
                     ),
                 )
             )
@@ -59,9 +51,6 @@ class CustomerFormType extends AbstractType
                     'attr' => array(
                         'placeholder' => 'Cognoms *',
                     ),
-                    'constraints' => array(
-                        new Assert\NotBlank(),
-                    ),
                 )
             )
             ->add(
@@ -72,14 +61,6 @@ class CustomerFormType extends AbstractType
                     'required' => true,
                     'attr' => array(
                         'placeholder' => 'Email *',
-                    ),
-                    'constraints' => array(
-                        new Assert\NotBlank(),
-                        new Assert\Email(array(
-                            'strict' => true,
-                            'checkMX' => true,
-                            'checkHost' => true,
-                        )),
                     ),
                 )
             )
@@ -101,7 +82,7 @@ class CustomerFormType extends AbstractType
                     'label' => false,
                     'required' => false,
                     'attr' => array(
-                        'placeholder' => 'Adreça',
+                        'placeholder' => 'Adreça *',
                     ),
                 )
             )
@@ -112,7 +93,7 @@ class CustomerFormType extends AbstractType
                     'label' => false,
                     'required' => false,
                     'attr' => array(
-                        'placeholder' => 'Codi Postal',
+                        'placeholder' => 'Codi Postal *',
                     ),
                 )
             )
@@ -123,7 +104,7 @@ class CustomerFormType extends AbstractType
                     'label' => false,
                     'required' => false,
                     'attr' => array(
-                        'placeholder' => 'Província',
+                        'placeholder' => 'Província *',
                     ),
                 )
             )
@@ -143,7 +124,7 @@ class CustomerFormType extends AbstractType
     {
         $resolver->setDefaults(
             array(
-                'data_class' => 'AppBundle\Entity\Customer'
+                'data_class' => 'AppBundle\Entity\Customer',
             )
         );
     }
