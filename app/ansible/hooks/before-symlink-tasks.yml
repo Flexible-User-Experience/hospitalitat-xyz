@@ -6,7 +6,7 @@
     SYMFONY_ENV={{ symfony_env }} {{ symfony_php_path }} {{ symfony_console_path }} cache:warmup {{ symfony_cache_options }}
 - name: fix symfony cache directory apache ownership
   file:
-    path: "{{ ansistrano_release_path.stdout }}/app/cache/prod"
+    path: "{{ ansistrano_release_path.stdout }}/var/cache/prod"
     recurse: yes
     owner: www-data
     group: www-data
