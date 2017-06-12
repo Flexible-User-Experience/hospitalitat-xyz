@@ -103,7 +103,7 @@ class Customer
     /**
      * @var Booking
      *
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Booking")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Booking", cascade={"persist"})
      */
     private $booking;
 

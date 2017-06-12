@@ -17,7 +17,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  *
  * @author  Wils Iglesias <wiglesias83@gmail.com>
  */
-class CustomerType extends AbstractType
+class CustomerFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
