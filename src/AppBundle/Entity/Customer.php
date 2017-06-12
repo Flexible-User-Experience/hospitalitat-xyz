@@ -16,7 +16,10 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *
  * @ORM\Table(name="customer")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\CustomerRepository")
- * @UniqueEntity("nif")
+ * @UniqueEntity(
+ *     fields={"nif"},
+ *     message="Aquest DNI ja s'ha utilitzat. Només pots efectuar una reserva per DNI."
+ * )
  */
 class Customer
 {
@@ -50,6 +53,10 @@ class Customer
      *
      * @ORM\Column(name="nif", type="string", length=255, unique=true)
      * @Assert\NotBlank()
+     * @Assert\Regex(
+     *     pattern="/\d{8}[A-Z]/",
+     *     message="Format vàlid 8 dígits seguit d'una lletra majúscula (00000000X)"
+     * )
      */
     private $nif;
 
