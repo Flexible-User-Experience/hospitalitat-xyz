@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Booking;
 use AppBundle\Entity\Customer;
 use AppBundle\Form\CustomerFormType;
+use Doctrine\ORM\EntityNotFoundException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,9 +30,24 @@ class DefaultController extends Controller
      * @param int     $year
      *
      * @return Response
+     *
+     * @throws EntityNotFoundException
      */
     public function bookingAction(Request $request, $day, $month, $year)
     {
+        $startDay = new \DateTime();
+        $startDay->setDate($year, $month, $day);
+        $previousBooking = $this->getDoctrine()->getRepository('AppBundle:Booking')->findBookingByStartDay($startDay);
+
+        if ($previousBooking) {
+            $this->addFlash(
+                'error',
+                'Ja existeix una reserva amb el mateix dia'
+            );
+
+            return $this->redirectToRoute('front_homepage');
+        }
+
         $customer = new Customer();
         $form = $this->createForm(CustomerFormType::class, $customer);
         $form->handleRequest($request);
@@ -42,8 +58,6 @@ class DefaultController extends Controller
                 'La teva reserva s\'ha realitzat exitosament'
             );
 
-            $startDay = new \DateTime();
-            $startDay->setDate($year, $month, $day);
             $booking = new Booking();
             $booking
                 ->setStart($startDay)

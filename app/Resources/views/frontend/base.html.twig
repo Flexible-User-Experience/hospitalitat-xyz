@@ -17,7 +17,7 @@
         <div class="ui container">
             <div class="ui large secondary inverted pointing menu">
                 <div class="left">
-                    <h1 class="ui inverted header">#{{ main_brand_title }}</h1>
+                    <h1 class="ui inverted header"><a href="{{ path('front_homepage') }}">{{ main_brand_title }}</a></h1>
                 </div>
             </div>
         </div>
@@ -26,6 +26,18 @@
     <div class="ui vertical stripe segment">
         <div class="ui middle aligned stackable grid container">
             <div class="row">
+                {% for flash_message in app.session.flashBag.get('notice') %}
+                    <div class="ui success message">
+                        <div class="header">Formulari Completat</div>
+                        <p>{{ flash_message }}</p>
+                    </div>
+                {% endfor %}
+                {% for flash_message in app.session.flashBag.get('error') %}
+                    <div class="ui error message">
+                        <div class="header">Error</div>
+                        <p>{{ flash_message }}</p>
+                    </div>
+                {% endfor %}
                 {% block body %}{% endblock %}
             </div>
         </div>
