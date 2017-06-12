@@ -1,0 +1,32 @@
+# Easy Admin
+easy_admin:
+    disabled_actions: ['edit', 'delete', 'new']
+    site_name: "%project_web_title%"
+    design:
+        color_scheme: 'dark'
+    entities:
+        Customer:
+            class: AppBundle\Entity\Customer
+            label: 'Clients'
+            list:
+                actions: ['show']
+                title: 'Llista'
+                sort: ['booking.start', 'ASC']
+                fields:
+                    - { property: 'booking', label: 'Reserva' }
+                    - { property: 'nif', label: 'DNI' }
+                    - { property: 'name', label: 'Nom' }
+                    - { property: 'surname', label: 'Cognoms' }
+                    - { property: 'email', label: 'Email' }
+                    - { property: 'phone', label: 'Telèfon' }
+            show:
+                fields:
+                    - { property: 'nif', label: 'DNI' }
+                    - { property: 'name', label: 'Nom' }
+                    - { property: 'surname', label: 'Cognoms' }
+                    - { property: 'email', label: 'Email', type: 'email' }
+                    - { property: 'phone', label: 'Telèfon' }
+                    - { property: 'address', label: 'Adreça' }
+                    - { property: 'postalCode', label: 'Codi Postal' }
+                    - { property: 'province', label: 'Província' }
+                    - { property: 'booking', label: 'Reserva' }

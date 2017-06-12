@@ -1,0 +1,24 @@
+# Customer
+AppBundle\Entity\Customer:
+  customer{1..10}:
+    name: <name()>
+    surname: <lastname()>
+    nif: <bothify('######?')>
+    email: <email()>
+    address: <streetAddress()>
+    postalCode: <postcode()>
+    province: <state()>
+    phone: <phoneNumber()>
+    booking: "@booking<current()>"
+
+# Room
+AppBundle\Entity\Room:
+  room1:
+    name: La Carrova
+
+# Booking
+AppBundle\Entity\Booking:
+  booking{1..10}:
+    item: "@room1"
+    start: <dateTimeBetween('-2 months', '-1 months')>
+    end: <dateTimeBetween('-1 months', '-5 days')>

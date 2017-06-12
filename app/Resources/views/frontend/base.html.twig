@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Benvingut a {{ main_brand_title }}{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{ asset('semantic/semantic.min.css') }}">
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+</head>
+<body>
+{#<!-- Page Contents -->#}
+<div class="pusher">
+
+    <div class="ui inverted vertical masthead center aligned segment">
+
+        <div class="ui container">
+            <div class="ui large secondary inverted pointing menu">
+                <div class="left">
+                    <h1 class="ui inverted header"><a href="{{ path('front_homepage') }}">{{ main_brand_title }}</a></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui vertical stripe segment">
+        <div class="ui middle aligned stackable grid container">
+            <div class="row">
+                <div class="ui vertical stripe segment">
+                    <div class="ui middle aligned stackable grid container">
+                        <div class="row">
+
+                            <div class="four wide column">
+                                <div class="six wide right floated column">
+                                    <img src="https://semantic-ui.com/examples/assets/images/wireframe/white-image.png" class="ui large bordered rounded image">
+                                </div>
+                            </div>
+
+                            <div class="eight wide column">
+                                <div class="six wide right floated column">
+                                    <img src="https://semantic-ui.com/examples/assets/images/wireframe/white-image.png" class="ui large bordered rounded image">
+                                </div>
+                            </div>
+
+                            <div class="four wide column">
+                                <div class="six wide right floated column">
+                                    <img src="https://semantic-ui.com/examples/assets/images/wireframe/white-image.png" class="ui large bordered rounded image">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="ui vertical stripe segment">
+                    <div class="ui middle aligned stackable grid container">
+                        <div class="row">
+                            <div class="twelve wide column">
+                                <h3 class="ui header">{{ main_brand_title }}</h3>
+                                <p>Reserva una nit a la Torre de la carrova. Un emplaçament que efímerant proposa una experiència personal que és també part d'una peça artística.</p>
+                                <p>Podeu reservar una nit per a dues persones per a dormir, o visitar la torre, per veure les estrelles o per a concebir.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% for flash_message in app.session.flashBag.get('notice') %}
+                    <div class="ui success message">
+                        <div class="header">Formulari Completat</div>
+                        <p>{{ flash_message }}</p>
+                    </div>
+                {% endfor %}
+                {% for flash_message in app.session.flashBag.get('error') %}
+                    <div class="ui error message">
+                        <div class="header">Error</div>
+                        <p>{{ flash_message }}</p>
+                    </div>
+                {% endfor %}
+                {% block body %}{% endblock %}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% block javascripts %}
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous">
+    </script>
+    <script src="{{ asset('semantic/semantic.min.js') }}"></script>
+{% endblock %}
+</body>
+</html>
