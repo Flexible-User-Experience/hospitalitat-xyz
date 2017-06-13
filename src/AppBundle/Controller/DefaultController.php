@@ -83,6 +83,10 @@ class DefaultController extends Controller
             $em->persist($customer);
             $em->flush();
 
+            $notificationService = $this->get('app.notification');
+            $notificationService->sendCustomerNotification($customer);
+            $notificationService->sendAdminNotification($customer);
+
             return $this->redirectToRoute('front_homepage');
         }
 

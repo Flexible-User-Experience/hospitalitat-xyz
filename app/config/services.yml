@@ -41,3 +41,10 @@ services:
         arguments: [ "@doctrine.orm.entity_manager", "@router" ]
         tags:
             - { name: twig.extension }
+# Messaging
+    app.courier:
+        class: AppBundle\Service\CourierService
+        arguments: [ "@swiftmailer.mailer" ]
+    app.notification:
+        class: AppBundle\Service\NotificationService
+        arguments: [ "@app.courier", "@twig", "%mailer_destination%", "%mailer_url_base%" ]

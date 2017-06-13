@@ -22,3 +22,9 @@
 /composer.phar
 # Custom script
 /dbreset.sh
+
+# Ansible
+/app/ansible/vars/*
+!/app/ansible/vars/.gitkeep
+/app/ansible/*.retry
+.idea/
