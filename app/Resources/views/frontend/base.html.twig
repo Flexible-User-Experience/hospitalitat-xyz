@@ -7,11 +7,74 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('semantic/semantic.min.css') }}">
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+
+    <style type="text/css">
+
+        .ui.vertical.stripe {
+            padding: 8em 0em;
+        }
+        .ui.vertical.stripe h3 {
+            font-size: 2em;
+        }
+        .ui.vertical.stripe .button + h3,
+        .ui.vertical.stripe p + h3 {
+            margin-top: 3em;
+        }
+        .ui.vertical.stripe .floated.image {
+            clear: both;
+        }
+        .ui.vertical.stripe p {
+            font-size: 1.33em;
+        }
+        .ui.vertical.stripe .horizontal.divider {
+            margin: 3em 0em;
+        }
+
+        .quote.stripe.segment {
+            padding: 0em;
+        }
+        .quote.stripe.segment .grid .column {
+            padding-top: 5em;
+            padding-bottom: 5em;
+        }
+
+        .footer.segment {
+            padding: 5em 0em;
+        }
+
+        .secondary.pointing.menu .toc.item {
+            display: none;
+        }
+
+        @media only screen and (max-width: 700px) {
+            .ui.fixed.menu {
+                display: none !important;
+            }
+            .secondary.pointing.menu .item,
+            .secondary.pointing.menu .menu {
+                display: none;
+            }
+            .secondary.pointing.menu .toc.item {
+                display: block;
+            }
+            .masthead.segment {
+                min-height: 350px;
+            }
+            .masthead h1.ui.header {
+                font-size: 2em;
+                margin-top: 1.5em;
+            }
+            .masthead h2 {
+                margin-top: 0.5em;
+                font-size: 1.5em;
+            }
+        }
+
+    </style>
 </head>
 <body>
 {#<!-- Page Contents -->#}
 <div class="pusher">
-
     <div class="ui inverted vertical masthead center aligned segment">
 
         <div class="ui container">
@@ -24,60 +87,47 @@
     </div>
 
     <div class="ui vertical stripe segment">
-        <div class="ui middle aligned stackable grid container">
-            <div class="row">
-                <div class="ui vertical stripe segment">
-                    <div class="ui middle aligned stackable grid container">
-                        <div class="row">
-
-                            <div class="four wide column">
-                                <div class="six wide right floated column">
-                                    <img src="https://semantic-ui.com/examples/assets/images/wireframe/white-image.png" class="ui large bordered rounded image">
-                                </div>
-                            </div>
-
-                            <div class="eight wide column">
-                                <div class="six wide right floated column">
-                                    <img src="https://semantic-ui.com/examples/assets/images/wireframe/white-image.png" class="ui large bordered rounded image">
-                                </div>
-                            </div>
-
-                            <div class="four wide column">
-                                <div class="six wide right floated column">
-                                    <img src="https://semantic-ui.com/examples/assets/images/wireframe/white-image.png" class="ui large bordered rounded image">
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+        <div class="ui three column grid container">
+            <div class="column">
+                <div class="ui segment">
+                    <img src="https://semantic-ui.com/examples/assets/images/wireframe/white-image.png" class="ui large bordered fluid rounded image">
                 </div>
-                <div class="ui vertical stripe segment">
-                    <div class="ui middle aligned stackable grid container">
-                        <div class="row">
-                            <div class="twelve wide column">
-                                <h3 class="ui header">{{ main_brand_title }}</h3>
-                                <p>Reserva una nit a la Torre de la carrova. Un emplaçament que efímerant proposa una experiència personal que és també part d'una peça artística.</p>
-                                <p>Podeu reservar una nit per a dues persones per a dormir, o visitar la torre, per veure les estrelles o per a concebir.</p>
-                            </div>
-                        </div>
-                    </div>
+            </div>
+            <div class="column">
+                <div class="ui segment">
+                    <img src="https://semantic-ui.com/examples/assets/images/wireframe/white-image.png" class="ui large bordered fluid rounded image">
                 </div>
-                {% for flash_message in app.session.flashBag.get('notice') %}
-                    <div class="ui success message">
-                        <div class="header">Formulari Completat</div>
-                        <p>{{ flash_message }}</p>
-                    </div>
-                {% endfor %}
-                {% for flash_message in app.session.flashBag.get('error') %}
-                    <div class="ui error message">
-                        <div class="header">Error</div>
-                        <p>{{ flash_message }}</p>
-                    </div>
-                {% endfor %}
-                {% block body %}{% endblock %}
+            </div>
+            <div class="column">
+                <div class="ui segment">
+                    <img src="https://semantic-ui.com/examples/assets/images/wireframe/white-image.png" class="ui large bordered fluid rounded image">
+                </div>
             </div>
         </div>
     </div>
+        <div class="ui vertical stripe segment">
+            <div class="ui text container">
+                <h3 class="ui header">{{ main_brand_title }}</h3>
+                <p>Reserva una nit a la Torre de la carrova. Un emplaçament que efímerant proposa una
+                    experiència personal que és també part d'una peça artística.</p>
+                <p>Podeu reservar una nit per a dues persones per a dormir, o visitar la torre, per
+                    veure les estrelles o per a concebir.</p>
+            </div>
+        </div>
+
+    {% for flash_message in app.session.flashBag.get('notice') %}
+        <div class="ui success message">
+            <div class="header">Formulari Completat</div>
+            <p>{{ flash_message }}</p>
+        </div>
+    {% endfor %}
+    {% for flash_message in app.session.flashBag.get('error') %}
+        <div class="ui error message">
+            <div class="header">Error</div>
+            <p>{{ flash_message }}</p>
+        </div>
+    {% endfor %}
+    {% block body %}{% endblock %}
 
 </div>
 
