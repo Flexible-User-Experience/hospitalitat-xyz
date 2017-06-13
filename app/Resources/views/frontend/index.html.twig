@@ -3,13 +3,15 @@
 {% block body %}
 
     <div class="ui vertical basic stripe quote segment">
-        <div class="ui equal width stackable internally grid container">
+        <div class="ui equal width internally grid container">
             <div class="center aligned row">
                 <div class="four wide right floated column">
-                    <table class="ui celled table">
+                    <table class="ui celled padded table">
                         <thead>
                         <tr>
-                            <th colspan="7">Juliol 2017</th>
+                            <th class="single line center aligned" colspan="7">
+                                Juliol 2017
+                            </th>
                         </tr>
                         <tr>
                             <th>Dl.</th>
@@ -21,7 +23,7 @@
                             <th>Dg.</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="right aligned">
                         <tr>
                             <td class="active item"></td>
                             <td class="active item"></td>
@@ -81,10 +83,10 @@
                 </div>
                 <div class="one wide column"></div>
                 <div class="four wide left floated column">
-                    <table class="ui celled table">
+                    <table class="ui celled padded table">
                         <thead>
                         <tr>
-                            <th colspan="7">Agost 2017</th>
+                            <th class="single line center aligned" colspan="7">Agost 2017</th>
                         </tr>
                         <tr>
                             <th>Dl.</th>
@@ -96,7 +98,7 @@
                             <th>Dg.</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="right aligned">
                         <tr>
                             <td class="active item"></td>
                             {{ drawTdAvailavility(1, 8, 2017) | raw }}
