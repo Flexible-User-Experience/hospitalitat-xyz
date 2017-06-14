@@ -1,0 +1,31 @@
+{% extends "HampeZurbInkBundle:FoundationForEmails:2/base.html.twig" %}
+
+{% block additionalStyles %}
+    {{ zurb_ink_styles.add("@AppBundle/Resources/public/css/mail.css") }}
+{% endblock %}
+
+{% block content %}
+    {% if show_devel_top_bar is defined and show_devel_top_bar == true %}
+        <callout class="alert">
+            <row>
+                <columns>
+                    <p class="text-right">[ mode previsualització ]</p>
+                </columns>
+            </row>
+        </callout>
+    {% endif %}
+    <container>
+        {% block template %}{% endblock template %}
+        <row>
+            <callout style="background-color:#21A5D6;border-color:#21A5D6">
+                <row>
+                    <columns>
+                        <p class="footer">{{ main_brand_title }} | <a style="color:#FFFFFF;" href="mailto:{{ main_brand_email }}">{{ main_brand_email }}</a></p>
+                        <br>
+                        <p class="footer">El correu electrònic no garanteix la seguretat de les comunicacions, no assumint {{ main_brand_title }} responsabilitat com a conseqüència d'això. Aquest missatge es dirigeix, de manera exclusiva, al seu destinatari i conté informació confidencial, subjecta al secret professional, la divulgació, còpia o utilització no autoritzada és contrària a la llei. Si rep aquest missatge per error, li preguem ens ho comuniqui immediatament i l'elimini sense conservar còpia del mateix ni dels seus documents adjunts.</p>
+                    </columns>
+                </row>
+            </callout>
+        </row>
+    </container>
+{% endblock %}
