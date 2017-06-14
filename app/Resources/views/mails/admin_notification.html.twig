@@ -1,0 +1,18 @@
+{% extends ":Mails:base.html.twig" %}
+
+{% block template %}
+    <container>
+        <row>
+            <columns>
+                <h2 class="blue-color">Número de reserva {{ customer.booking.code }}</h2>
+            </columns>
+        </row>
+        <row>
+            <columns>
+                <p>{{ customer.fullName() }}, amb DNI {{ customer.nif }} a realitzat la següent número de reserva {{ customer.booking.code }}, pel dia {{ customer.booking.start | date('d/m/Y') }}</p>
+                <br>
+                <p>Comprova-ho a la teva llista de clients del CMS <a href="{{ url('admin') }}">aquí</a></p>
+            </columns>
+        </row>
+    </container>
+{% endblock %}

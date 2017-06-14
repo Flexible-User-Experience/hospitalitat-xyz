@@ -44,7 +44,9 @@ services:
 # Messaging
     app.courier:
         class: AppBundle\Service\CourierService
+        public: true
         arguments: [ "@swiftmailer.mailer" ]
     app.notification:
         class: AppBundle\Service\NotificationService
+        public: true
         arguments: [ "@app.courier", "@twig", "%mailer_destination%", "%mailer_url_base%" ]

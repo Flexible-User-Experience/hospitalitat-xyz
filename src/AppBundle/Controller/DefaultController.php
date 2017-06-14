@@ -72,8 +72,12 @@ class DefaultController extends Controller
                 'La teva reserva s\'ha realitzat exitosament'
             );
 
+            $code = hash('md5', $customer->getNif());
+            $code = strtoupper($code);
+            $code = substr($code, 0, 4);
             $booking = new Booking();
             $booking
+                ->setCode($code)
                 ->setStart($startDay)
                 ->setEnd($startDay)
                 ->setItem($this->getDoctrine()->getRepository('AppBundle:Room')->getLaCarrovaRoom())
@@ -114,7 +118,7 @@ class DefaultController extends Controller
 
         $customer = $this->getDoctrine()->getRepository('AppBundle:Customer')->find(1);
 
-        return $this->render(':mails:user_notification.html.twig', [
+        return $this->render(':mails:admin_notification.html.twig', [
             'customer' => $customer,
             'show_devel_top_bar' => true,
         ]);
