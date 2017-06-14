@@ -35,6 +35,12 @@ class Booking extends BaseClass
     protected $item;
 
     /**
+     * @var string
+     * @ORM\Column(type="string", nullable=false, length=4)
+     */
+    protected $code;
+
+    /**
      * Methods.
      */
 
@@ -61,8 +67,28 @@ class Booking extends BaseClass
     /**
      * @return string
      */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * @param string $code
+     *
+     * @return Booking
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
     public function __toString()
     {
-        return $this->getStart()->format('d/m/Y');
+        return $this->getStart()->format('d/m/Y').' · '.$this->getCode();
     }
 }
