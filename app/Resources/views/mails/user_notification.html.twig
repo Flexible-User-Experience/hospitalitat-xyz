@@ -1,0 +1,23 @@
+{% extends ":Mails:base.html.twig" %}
+
+{% block template %}
+    <container>
+        <row>
+            <columns>
+                <h2 class="blue-color">Reserva confirmada</h2>
+            </columns>
+        </row>
+        <row>
+            <columns>
+                <p>Hola {{ customer.fullName }}!</p>
+                <br>
+                    <p>Hem rebut correctament la teva reserva pel dia {{ customer.booking.start | date('d/m/Y') }}</p>
+           </columns>
+        </row>
+        <row>
+            <columns>
+                <button class="button">Número de reserva: </button>
+            </columns>
+        </row>
+    </container>
+{% endblock %}

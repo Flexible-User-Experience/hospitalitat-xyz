@@ -10,6 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class DefaultController extends Controller
 {
@@ -95,6 +96,27 @@ class DefaultController extends Controller
             'month' => $month,
             'year' => $year,
             'bookingForm' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/test-email", name="front_test_email")
+     *
+     * @return Response
+     *
+     * @throws HttpException
+     */
+    public function testEmailAction()
+    {
+        if ($this->get('kernel')->getEnvironment() == 'prod') {
+            throw new HttpException(403);
+        }
+
+        $customer = $this->getDoctrine()->getRepository('AppBundle:Customer')->find(1);
+
+        return $this->render(':mails:user_notification.html.twig', [
+            'customer' => $customer,
+            'show_devel_top_bar' => true,
         ]);
     }
 }

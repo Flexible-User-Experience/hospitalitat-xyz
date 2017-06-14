@@ -40,6 +40,7 @@ twig:
     strict_variables: '%kernel.debug%'
     globals:
         main_brand_title: "%project_web_title%"
+        main_brand_email: "%mailer_destination%"
     form_themes:
         - "::forms/semantic-ui-form-theme.html.twig"
 
