@@ -9,7 +9,7 @@
         </row>
         <row>
             <columns>
-                <p>{{ customer.fullName() }}, amb DNI {{ customer.nif }} a realitzat la següent número de reserva {{ customer.booking.code }}, pel dia {{ customer.booking.start | date('d/m/Y') }}</p>
+                <p>{{ customer.fullName() }}, amb DNI {{ customer.nif }} ha realitzat la següent reserva {{ customer.booking.code }} (#{{ customer.booking.id }}), pel dia {{ customer.booking.start | date('d/m/Y') }}</p>
                 <br>
                 <p>Comprova-ho a la teva llista de clients del CMS <a href="{{ url('admin') }}">aquí</a></p>
             </columns>
