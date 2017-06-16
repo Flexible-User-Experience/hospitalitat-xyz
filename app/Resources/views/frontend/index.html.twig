@@ -2,12 +2,12 @@
 
 {% block body %}
 
-    <div class="ui vertical basic stripe quote segment">
-        <div class="ui equal width internally grid container">
-            <div class="center aligned row">
-                <div class="five wide right floated column">
-                    <table class="ui celled padded table">
-                        <thead>
+    <div class="ui stackable two column vertically divided grid basic segment container">
+        <div class="center aligned row">
+
+            <div class="column">
+                <table class="ui padded unstackable table">
+                    <thead>
                         <tr>
                             <th class="single line center aligned" colspan="7">
                                 Juliol 2017
@@ -22,8 +22,8 @@
                             <th>Ds.</th>
                             <th>Dg.</th>
                         </tr>
-                        </thead>
-                        <tbody class="right aligned">
+                    </thead>
+                    <tbody class="right aligned">
                         <tr>
                             <td class="active item"></td>
                             <td class="active item"></td>
@@ -78,13 +78,12 @@
                             <td class="active item"></td>
                             <td class="active item"></td>
                         </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="one wide column"></div>
-                <div class="five wide left floated column">
-                    <table class="ui celled padded table">
-                        <thead>
+                    </tbody>
+                </table>
+            </div>
+            <div class="column">
+                <table class="ui padded unstackable table">
+                    <thead>
                         <tr>
                             <th class="single line center aligned" colspan="7">Agost 2017</th>
                         </tr>
@@ -97,8 +96,8 @@
                             <th>Ds.</th>
                             <th>Dg.</th>
                         </tr>
-                        </thead>
-                        <tbody class="right aligned">
+                    </thead>
+                    <tbody class="right aligned">
                         <tr>
                             <td class="active item"></td>
                             {{ drawTdAvailavility(1, 8, 2017) | raw }}
@@ -144,12 +143,161 @@
                             <td class="active item"></td>
                             <td class="active item"></td>
                         </tr>
-                        </tbody>
-                    </table>
-                </div>
+                    </tbody>
+                </table>
             </div>
+
         </div>
     </div>
+
+    {#<div class="ui vertical basic stripe quote segment">#}
+        {#<div class="ui equal width internally grid container">#}
+            {#<div class="center aligned row">#}
+                {#<div class="five wide right floated column">#}
+                    {#<table class="ui celled unstackable collapsing padded table">#}
+                        {#<thead>#}
+                        {#<tr>#}
+                            {#<th class="single line center aligned" colspan="7">#}
+                                {#Juliol 2017#}
+                            {#</th>#}
+                        {#</tr>#}
+                        {#<tr>#}
+                            {#<th>Dl.</th>#}
+                            {#<th>Dt.</th>#}
+                            {#<th>Dc.</th>#}
+                            {#<th>Dj.</th>#}
+                            {#<th>Dv.</th>#}
+                            {#<th>Ds.</th>#}
+                            {#<th>Dg.</th>#}
+                        {#</tr>#}
+                        {#</thead>#}
+                        {#<tbody class="right aligned">#}
+                        {#<tr>#}
+                            {#<td class="active item"></td>#}
+                            {#<td class="active item"></td>#}
+                            {#<td class="active item"></td>#}
+                            {#<td class="active item"></td>#}
+                            {#<td class="active item"></td>#}
+                            {#<td>1</td>#}
+                            {#<td>2</td>#}
+                        {#</tr>#}
+                        {#<tr>#}
+                            {#<td>3</td>#}
+                            {#<td>4</td>#}
+                            {#<td>5</td>#}
+                            {#<td>6</td>#}
+                            {#<td>7</td>#}
+                            {#<td>8</td>#}
+                            {#<td>9</td>#}
+                        {#</tr>#}
+                        {#<tr>#}
+                            {#<td>10</td>#}
+                            {#<td>11</td>#}
+                            {#<td>12</td>#}
+                            {#<td>13</td>#}
+                            {#<td>14</td>#}
+                            {#{{ drawTdAvailavility(15, 7, 2017) | raw }}#}
+                            {#{{ drawTdAvailavility(16, 7, 2017) | raw }}#}
+                        {#</tr>#}
+                        {#<tr>#}
+                            {#{{ drawTdAvailavility(17, 7, 2017) | raw }}#}
+                            {#{{ drawTdAvailavility(18, 7, 2017) | raw }}#}
+                            {#{{ drawTdAvailavility(19, 7, 2017) | raw }}#}
+                            {#{{ drawTdAvailavility(20, 7, 2017) | raw }}#}
+                            {#{{ drawTdAvailavility(21, 7, 2017) | raw }}#}
+                            {#{{ drawTdAvailavility(22, 7, 2017) | raw }}#}
+                            {#{{ drawTdAvailavility(23, 7, 2017) | raw }}#}
+                        {#</tr>#}
+                        {#<tr>#}
+                            {#{{ drawTdAvailavility(24, 7, 2017) | raw }}#}
+                            {#{{ drawTdAvailavility(25, 7, 2017) | raw }}#}
+                            {#{{ drawTdAvailavility(26, 7, 2017) | raw }}#}
+                            {#{{ drawTdAvailavility(27, 7, 2017) | raw }}#}
+                            {#{{ drawTdAvailavility(28, 7, 2017) | raw }}#}
+                            {#{{ drawTdAvailavility(29, 7, 2017) | raw }}#}
+                            {#{{ drawTdAvailavility(30, 7, 2017) | raw }}#}
+                        {#</tr>#}
+                        {#<tr>#}
+                            {#{{ drawTdAvailavility(31, 7, 2017) | raw }}#}
+                            {#<td class="active item"></td>#}
+                            {#<td class="active item"></td>#}
+                            {#<td class="active item"></td>#}
+                            {#<td class="active item"></td>#}
+                            {#<td class="active item"></td>#}
+                            {#<td class="active item"></td>#}
+                        {#</tr>#}
+                        {#</tbody>#}
+                    {#</table>#}
+                {#</div>#}
+                {#<div class="one wide column"></div>#}
+                {#<div class="five wide left floated column">#}
+                    {#<table class="ui celled padded collapsing unstackable table">#}
+                        {#<thead>#}
+                        {#<tr>#}
+                            {#<th class="single line center aligned" colspan="7">Agost 2017</th>#}
+                        {#</tr>#}
+                        {#<tr>#}
+                            {#<th>Dl.</th>#}
+                            {#<th>Dt.</th>#}
+                            {#<th>Dc.</th>#}
+                            {#<th>Dj.</th>#}
+                            {#<th>Dv.</th>#}
+                            {#<th>Ds.</th>#}
+                            {#<th>Dg.</th>#}
+                        {#</tr>#}
+                        {#</thead>#}
+                        {#<tbody class="right aligned">#}
+                        {#<tr>#}
+                            {#<td class="active item"></td>#}
+                            {#{{ drawTdAvailavility(1, 8, 2017) | raw }}#}
+                            {#{{ drawTdAvailavility(2, 8, 2017) | raw }}#}
+                            {#{{ drawTdAvailavility(3, 8, 2017) | raw }}#}
+                            {#{{ drawTdAvailavility(4, 8, 2017) | raw }}#}
+                            {#{{ drawTdAvailavility(5, 8, 2017) | raw }}#}
+                            {#{{ drawTdAvailavility(6, 8, 2017) | raw }}#}
+                        {#</tr>#}
+                        {#<tr>#}
+                            {#{{ drawTdAvailavility(7, 8, 2017) | raw }}#}
+                            {#{{ drawTdAvailavility(8, 8, 2017) | raw }}#}
+                            {#{{ drawTdAvailavility(9, 8, 2017) | raw }}#}
+                            {#{{ drawTdAvailavility(10, 8, 2017) | raw }}#}
+                            {#{{ drawTdAvailavility(11, 8, 2017) | raw }}#}
+                            {#{{ drawTdAvailavility(12, 8, 2017) | raw }}#}
+                            {#{{ drawTdAvailavility(13, 8, 2017) | raw }}#}
+                        {#</tr>#}
+                        {#<tr>#}
+                            {#{{ drawTdAvailavility(14, 8, 2017) | raw }}#}
+                            {#{{ drawTdAvailavility(15, 8, 2017) | raw }}#}
+                            {#<td>16</td>#}
+                            {#<td>17</td>#}
+                            {#<td>18</td>#}
+                            {#<td>19</td>#}
+                            {#<td>20</td>#}
+                        {#</tr>#}
+                        {#<tr>#}
+                            {#<td>21</td>#}
+                            {#<td>22</td>#}
+                            {#<td>23</td>#}
+                            {#<td>24</td>#}
+                            {#<td>25</td>#}
+                            {#<td>26</td>#}
+                            {#<td>27</td>#}
+                        {#</tr>#}
+                        {#<tr>#}
+                            {#<td>28</td>#}
+                            {#<td>29</td>#}
+                            {#<td>30</td>#}
+                            {#<td>31</td>#}
+                            {#<td class="active item"></td>#}
+                            {#<td class="active item"></td>#}
+                            {#<td class="active item"></td>#}
+                        {#</tr>#}
+                        {#</tbody>#}
+                    {#</table>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
 
     <div class="ui vertical basic stripe segment">
         <div class="ui text container">
