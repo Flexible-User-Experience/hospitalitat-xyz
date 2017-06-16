@@ -58,10 +58,10 @@ class AppExtension extends \Twig_Extension
         $startDay->setDate($year, $month, $day);
         $booking = $this->em->getRepository('AppBundle:Booking')->findBookingByStartDay($startDay);
         if ($booking) {
-            return '<td class="ui header tiny inverted red table">'.$day.'</td>';
+            return '<td class="ui item negative">'.$day.'</td>';
         }
 
-        return '<td class="ui inverted green table"><a class="ui header tiny inverted" href="'.$this->router->generate('front_booking', ['day' => $day, 'month' => $month, 'year' => $year]).'">'.$day.'</a></td>';
+        return '<td class="ui selectable positive"><a href="'.$this->router->generate('front_booking', ['day' => $day, 'month' => $month, 'year' => $year]).'">'.$day.'</a></td>';
     }
 
     /**
