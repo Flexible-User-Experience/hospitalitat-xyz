@@ -112,12 +112,13 @@ class CustomerFormType extends AbstractType
                 'send',
                 SubmitType::class,
                 array(
-                    'label' => 'Enviar',
+                    'label' => '<i class="add to calendar icon"></i> Reservar',
                     'attr' => array(
-                        'class' => 'ui primary button',
+                        'class' => 'ui positive',
                     ),
                 )
-            );
+            )
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
