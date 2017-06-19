@@ -14,6 +14,7 @@ easy_admin:
                 sort: ['booking.start', 'ASC']
                 fields:
                     - { property: 'booking', label: 'Reserva' }
+                    - { property: 'booking.code', label: 'Codi' }
                     - { property: 'nif', label: 'DNI' }
                     - { property: 'name', label: 'Nom' }
                     - { property: 'surname', label: 'Cognoms' }
@@ -29,4 +30,5 @@ easy_admin:
                     - { property: 'address', label: 'Adreça' }
                     - { property: 'postalCode', label: 'Codi Postal' }
                     - { property: 'province', label: 'Província' }
-                    - { property: 'booking', label: 'Reserva' }
+                    - { property: 'booking', label: 'Data Reserva' }
+                    - { property: 'booking.code', label: 'Codi' }

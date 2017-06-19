@@ -5,7 +5,10 @@
         <div class="row">
             <div class="seven wide column">
                 <h3 class="ui dividing header">Reserva {{ day }}/{{ month }}/{{ year }}</h3>
-                {{ form(bookingForm) }}
+                {{ form_start(bookingForm) }}
+                    {{ form_rest(bookingForm) }}
+                    <a class="negative ui button" href="{{ path('front_homepage') }}"><i class="remove icon"></i> Cancelar</a>
+                {{ form_end(bookingForm) }}
             </div>
         </div>
     </div>
