@@ -67,11 +67,7 @@
 {% block body %}{% endblock %}
 {# javascripts section #}
 {% block javascripts %}
-    <script
-            src="https://code.jquery.com/jquery-3.1.1.min.js"
-            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-            crossorigin="anonymous">
-    </script>
+    <script src="{{ asset('jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('semantic/semantic.min.js') }}"></script>
 {% endblock %}
 </body>
