@@ -29,6 +29,7 @@ easy_admin:
                     - { property: 'phone', label: 'Telèfon' }
                     - { property: 'address', label: 'Adreça' }
                     - { property: 'postalCode', label: 'Codi Postal' }
+                    - { property: 'city', label: 'Població' }
                     - { property: 'province', label: 'Província' }
                     - { property: 'booking', label: 'Data Reserva' }
                     - { property: 'booking.code', label: 'Codi' }

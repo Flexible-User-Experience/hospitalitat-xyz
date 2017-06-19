@@ -88,6 +88,13 @@ class Customer
     /**
      * @var string
      *
+     * @ORM\Column(type="string", nullable=false)
+     */
+    private $city;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="province", type="string", length=255)
      * @Assert\NotBlank()
      */
@@ -289,6 +296,26 @@ class Customer
     public function getPostalCode()
     {
         return $this->postalCode;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * @param string $city
+     *
+     * @return Customer
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+
+        return $this;
     }
 
     /**

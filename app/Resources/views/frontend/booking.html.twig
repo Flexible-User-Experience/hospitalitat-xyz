@@ -1,5 +1,15 @@
 {% extends ':frontend:base.html.twig' %}
 
+{% form_theme bookingForm _self %}
+
+{% block _app_bundle_customer_type_custom_nif_row -%}
+    <div data-inverted="" data-tooltip="8 números + 1 lletra majúscula '00000000Z'" data-position="right center" class="field{% if not valid %} error{% endif %}">
+        {{- form_label(form) -}}
+        {{- form_widget(form) -}}
+        {{- form_errors(form) -}}
+    </div>
+{%- endblock %}
+
 {% block body %}
     <div class="ui stackable two column vertically divided grid basic segment container">
         <div class="row">
@@ -7,7 +17,7 @@
                 <h3 class="ui dividing header">Reserva {{ day }}/{{ month }}/{{ year }}</h3>
                 {{ form_start(bookingForm) }}
                     {{ form_rest(bookingForm) }}
-                    <a class="negative ui button" href="{{ path('front_homepage') }}"><i class="remove icon"></i> Cancelar</a>
+                    <a class="negative ui button" href="{{ path('front_homepage') }}"><i class="remove icon"></i> Cancel·lar</a>
                 {{ form_end(bookingForm) }}
             </div>
         </div>
