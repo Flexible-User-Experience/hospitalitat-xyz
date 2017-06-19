@@ -1,10 +1,9 @@
 {% extends ':frontend:base.html.twig' %}
 
 {% block body %}
-
+    {# section calendar #}
     <div class="ui stackable two column vertically divided grid basic segment container">
         <div class="center aligned row">
-
             <div class="column">
                 <table class="ui celled unstackable seven column table">
                     <thead>
@@ -25,11 +24,11 @@
                     </thead>
                     <tbody class="right aligned">
                         <tr>
-                            <td class="active item"></td>
-                            <td class="active item"></td>
-                            <td class="active item"></td>
-                            <td class="active item"></td>
-                            <td class="active item"></td>
+                            <td class="item"></td>
+                            <td class="item"></td>
+                            <td class="item"></td>
+                            <td class="item"></td>
+                            <td class="item"></td>
                             <td>1</td>
                             <td>2</td>
                         </tr>
@@ -71,12 +70,12 @@
                         </tr>
                         <tr>
                             {{ drawTdAvailavility(31, 7, 2017) | raw }}
-                            <td class="active item"></td>
-                            <td class="active item"></td>
-                            <td class="active item"></td>
-                            <td class="active item"></td>
-                            <td class="active item"></td>
-                            <td class="active item"></td>
+                            <td class="item"></td>
+                            <td class="item"></td>
+                            <td class="item"></td>
+                            <td class="item"></td>
+                            <td class="item"></td>
+                            <td class="item"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -99,7 +98,7 @@
                     </thead>
                     <tbody class="right aligned">
                         <tr>
-                            <td class="active item"></td>
+                            <td class="item"></td>
                             {{ drawTdAvailavility(1, 8, 2017) | raw }}
                             {{ drawTdAvailavility(2, 8, 2017) | raw }}
                             {{ drawTdAvailavility(3, 8, 2017) | raw }}
@@ -139,31 +138,24 @@
                             <td>29</td>
                             <td>30</td>
                             <td>31</td>
-                            <td class="active item"></td>
-                            <td class="active item"></td>
-                            <td class="active item"></td>
+                            <td class="item"></td>
+                            <td class="item"></td>
+                            <td class="item"></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-
         </div>
     </div>
-
-    <div class="ui vertical basic stripe segment">
-        <div class="ui text container">
-            <p>Sel·lecciona el dia que us faria il·lusió dormir a la torre de la Corrava i seguiu les instruccions del formulari.</p>
+    {# end calendar #}
+    <div class="ui stackable two column vertically divided grid basic segment container">
+        <div class="row">
+            <div class="column">
+                <div class="ui text container">
+                    <p>Sel·lecciona el dia que us faria il·lusió dormir a la torre de la Corrava i seguiu les instruccions del formulari.</p>
+                </div>
+            </div>
         </div>
     </div>
-
-    {#<div class="ui vertical stripe basic segment">#}
-        {#<div class="ui one column grid container">#}
-            {#<div class="column">#}
-                {#<div class="ui segment centered">#}
-                    {#<img src="https://semantic-ui.com/examples/assets/images/wireframe/white-image.png" class="ui fluid bordered rounded image">#}
-                {#</div>#}
-            {#</div>#}
-        {#</div>#}
-    {#</div>#}
 
 {% endblock %}
