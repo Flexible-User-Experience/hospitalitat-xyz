@@ -64,7 +64,7 @@ class NotificationService
             $this->amd,
             $customer->getEmail(),
             'Confirmació de reserva '.$this->urlBase,
-            $this->twig->render(':mails:user_notification.html.twig', array(
+            $this->twig->render('::mails/user_notification.html.twig', array(
                 'customer' => $customer,
             ))
         );
@@ -81,7 +81,7 @@ class NotificationService
             $this->amd,
             $this->amd,
             'Confirmació de reserva '.$this->urlBase,
-            $this->twig->render(':mails:admin_notification.html.twig', array(
+            $this->twig->render('::mails/admin_notification.html.twig', array(
                 'customer' => $customer,
             ))
         );
