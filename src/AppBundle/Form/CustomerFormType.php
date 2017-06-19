@@ -17,6 +17,10 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 class CustomerFormType extends AbstractType
 {
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array                $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -122,6 +126,9 @@ class CustomerFormType extends AbstractType
         ;
     }
 
+    /**
+     * @param OptionsResolver $resolver
+     */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(
@@ -131,6 +138,9 @@ class CustomerFormType extends AbstractType
         );
     }
 
+    /**
+     * @return string
+     */
     public function getBlockPrefix()
     {
         return 'app_bundle_customer_type';

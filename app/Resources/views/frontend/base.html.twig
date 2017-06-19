@@ -9,7 +9,7 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
 <body>
-{#<!-- Page Contents -->#}
+{# page contents #}
 <div class="pusher">
     <div class="ui inverted vertical masthead center aligned basic segment">
 
@@ -49,7 +49,7 @@
             </div>
         </div>
     </div>
-
+    {# flash section #}
     {% for flash_message in app.session.flashBag.get('notice') %}
         <div class="ui success message">
             <div class="header">Formulari Completat</div>
@@ -63,9 +63,9 @@
         </div>
     {% endfor %}
 </div>
-
+{# block body#}
 {% block body %}{% endblock %}
-
+{# javascripts section #}
 {% block javascripts %}
     <script
             src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -74,6 +74,5 @@
     </script>
     <script src="{{ asset('semantic/semantic.min.js') }}"></script>
 {% endblock %}
-
 </body>
 </html>
