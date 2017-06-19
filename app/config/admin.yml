@@ -1,6 +1,6 @@
 # Easy Admin
 easy_admin:
-    disabled_actions: ['edit', 'delete', 'new']
+    disabled_actions: ['edit', 'new']
     site_name: "%project_web_title%"
     design:
         color_scheme: 'dark'
@@ -9,7 +9,7 @@ easy_admin:
             class: AppBundle\Entity\Customer
             label: 'Clients'
             list:
-                actions: ['show']
+                actions: ['show', 'delete']
                 title: 'Llista'
                 sort: ['booking.start', 'ASC']
                 fields:
