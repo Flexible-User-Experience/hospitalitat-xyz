@@ -21,6 +21,27 @@
             </div>
         </div>
     </div>
+    {# flash section #}
+    <div class="ui stackable one column vertically divided grid basic segment container">
+        <div class="row">
+            <div class="column">
+                <div class="ui container">
+                    {% for flash_message in app.session.flashBag.get('notice') %}
+                        <div class="ui success message">
+                            <div class="header"><i class="hand spock icon"></i> Formulari completat</div>
+                            <p>{{ flash_message }} <i class="smile icon"></i></p>
+                        </div>
+                    {% endfor %}
+                    {% for flash_message in app.session.flashBag.get('error') %}
+                        <div class="ui error message">
+                            <div class="header"><i class="bomb icon"></i> Error</div>
+                            <p>{{ flash_message }} <i class="smile icon"></i></p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
     {# section images #}
     <div class="ui stackable three column vertically divided grid basic segment container">
         <div class="row">
@@ -49,19 +70,6 @@
             </div>
         </div>
     </div>
-    {# flash section #}
-    {% for flash_message in app.session.flashBag.get('notice') %}
-        <div class="ui success message">
-            <div class="header">Formulari Completat</div>
-            <p>{{ flash_message }}</p>
-        </div>
-    {% endfor %}
-    {% for flash_message in app.session.flashBag.get('error') %}
-        <div class="ui error message">
-            <div class="header">Error</div>
-            <p>{{ flash_message }}</p>
-        </div>
-    {% endfor %}
 </div>
 {# block body#}
 {% block body %}{% endblock %}

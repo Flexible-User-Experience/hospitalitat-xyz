@@ -46,7 +46,7 @@ class DefaultController extends Controller
         if ($startDay < $minDay || $startDay > $maxDay) {
             $this->addFlash(
                 'error',
-                'No hackers allowed ;)'
+                'No hackers allowed'
             );
 
             return $this->redirectToRoute('front_homepage');

@@ -89,6 +89,7 @@ class Customer
      * @var string
      *
      * @ORM\Column(type="string", nullable=false)
+     * @Assert\NotBlank()
      */
     private $city;
 
