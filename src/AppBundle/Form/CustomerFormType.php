@@ -26,6 +26,7 @@ class CustomerFormType extends AbstractType
                 array(
                     'label' => false,
                     'required' => true,
+                    'block_name' => 'custom_nif',
                     'attr' => array(
                         'placeholder' => 'DNI *',
                     ),
