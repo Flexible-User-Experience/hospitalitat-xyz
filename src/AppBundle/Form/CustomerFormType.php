@@ -103,6 +103,17 @@ class CustomerFormType extends AbstractType
                 )
             )
             ->add(
+                'city',
+                TextType::class,
+                array(
+                    'label' => false,
+                    'required' => false,
+                    'attr' => array(
+                        'placeholder' => 'Població *',
+                    ),
+                )
+            )
+            ->add(
                 'province',
                 TextType::class,
                 array(
