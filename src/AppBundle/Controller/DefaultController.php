@@ -69,7 +69,7 @@ class DefaultController extends Controller
             // Set frontend flash message
             $this->addFlash(
                 'notice',
-                'La teva reserva s\'ha realitzat exitosament'
+                'La teva reserva s\'ha realitzat correctament'
             );
 
             $code = hash('md5', $customer->getNif());
