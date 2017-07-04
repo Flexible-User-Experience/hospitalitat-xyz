@@ -1,6 +1,6 @@
 # Easy Admin
 easy_admin:
-    disabled_actions: ['edit', 'delete', 'new']
+    disabled_actions: ['edit', 'new']
     site_name: "%project_web_title%"
     design:
         color_scheme: 'dark'
@@ -9,11 +9,12 @@ easy_admin:
             class: AppBundle\Entity\Customer
             label: 'Clients'
             list:
-                actions: ['show']
+                actions: ['show', 'delete']
                 title: 'Llista'
                 sort: ['booking.start', 'ASC']
                 fields:
                     - { property: 'booking', label: 'Reserva' }
+                    - { property: 'booking.code', label: 'Codi' }
                     - { property: 'nif', label: 'DNI' }
                     - { property: 'name', label: 'Nom' }
                     - { property: 'surname', label: 'Cognoms' }
@@ -28,5 +29,7 @@ easy_admin:
                     - { property: 'phone', label: 'Telèfon' }
                     - { property: 'address', label: 'Adreça' }
                     - { property: 'postalCode', label: 'Codi Postal' }
+                    - { property: 'city', label: 'Població' }
                     - { property: 'province', label: 'Província' }
-                    - { property: 'booking', label: 'Reserva' }
+                    - { property: 'booking', label: 'Data Reserva' }
+                    - { property: 'booking.code', label: 'Codi' }

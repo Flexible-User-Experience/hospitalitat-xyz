@@ -38,15 +38,12 @@ class DefaultController extends Controller
     {
         $startDay = new \DateTime();
         $startDay->setDate($year, $month, $day);
-        $minDay = new \DateTime();
-        $minDay->setDate(2017, 7, 14);
-        $maxDay = new \DateTime();
-        $maxDay->setDate(2017, 8, 15);
+        $as = $this->get('app.availability');
 
-        if ($startDay < $minDay || $startDay > $maxDay) {
+        if (!$as->check($startDay)) {
             $this->addFlash(
                 'error',
-                'No hackers allowed ;)'
+                'No hackers allowed'
             );
 
             return $this->redirectToRoute('front_homepage');
@@ -69,7 +66,7 @@ class DefaultController extends Controller
             // Set frontend flash message
             $this->addFlash(
                 'notice',
-                'La teva reserva s\'ha realitzat exitosament'
+                'La teva reserva s\'ha realitzat correctament'
             );
 
             $code = hash('md5', $customer->getNif());

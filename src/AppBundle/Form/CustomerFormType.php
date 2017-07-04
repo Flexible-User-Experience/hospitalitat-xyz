@@ -17,6 +17,10 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 class CustomerFormType extends AbstractType
 {
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array                $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -26,6 +30,7 @@ class CustomerFormType extends AbstractType
                 array(
                     'label' => false,
                     'required' => true,
+                    'block_name' => 'custom_nif',
                     'attr' => array(
                         'placeholder' => 'DNI *',
                     ),
@@ -98,6 +103,17 @@ class CustomerFormType extends AbstractType
                 )
             )
             ->add(
+                'city',
+                TextType::class,
+                array(
+                    'label' => false,
+                    'required' => false,
+                    'attr' => array(
+                        'placeholder' => 'Població *',
+                    ),
+                )
+            )
+            ->add(
                 'province',
                 TextType::class,
                 array(
@@ -112,14 +128,18 @@ class CustomerFormType extends AbstractType
                 'send',
                 SubmitType::class,
                 array(
-                    'label' => 'Enviar',
+                    'label' => '<i class="add to calendar icon"></i> Reservar',
                     'attr' => array(
-                        'class' => 'ui primary button',
+                        'class' => 'ui positive',
                     ),
                 )
-            );
+            )
+        ;
     }
 
+    /**
+     * @param OptionsResolver $resolver
+     */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(
@@ -129,6 +149,9 @@ class CustomerFormType extends AbstractType
         );
     }
 
+    /**
+     * @return string
+     */
     public function getBlockPrefix()
     {
         return 'app_bundle_customer_type';

@@ -50,3 +50,7 @@ services:
         class: AppBundle\Service\NotificationService
         public: true
         arguments: [ "@app.courier", "@twig", "%mailer_destination%", "%mailer_url_base%" ]
+# App
+    app.availability:
+        class: AppBundle\Service\AvailabilityService
+        public: true

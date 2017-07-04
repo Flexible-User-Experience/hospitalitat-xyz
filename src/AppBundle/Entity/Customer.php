@@ -54,7 +54,7 @@ class Customer
      * @ORM\Column(name="nif", type="string", length=255, unique=true)
      * @Assert\NotBlank()
      * @Assert\Regex(
-     *     pattern="/\d{8}[A-Z]/",
+     *     pattern="/^\d{8}[A-Z]{1}$/",
      *     message="Format vàlid 8 dígits seguit d'una lletra majúscula (00000000X)"
      * )
      */
@@ -84,6 +84,14 @@ class Customer
      * @Assert\NotBlank()
      */
     private $postalCode;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=false)
+     * @Assert\NotBlank()
+     */
+    private $city;
 
     /**
      * @var string
@@ -119,7 +127,7 @@ class Customer
     /**
      * @var Booking
      *
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Booking", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Booking", cascade={"persist"}, orphanRemoval=true)
      */
     private $booking;
 
@@ -289,6 +297,26 @@ class Customer
     public function getPostalCode()
     {
         return $this->postalCode;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * @param string $city
+     *
+     * @return Customer
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+
+        return $this;
     }
 
     /**

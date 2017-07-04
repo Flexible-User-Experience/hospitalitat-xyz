@@ -89,6 +89,6 @@ class Booking extends BaseClass
      */
     public function __toString()
     {
-        return $this->getStart()->format('d/m/Y').' · '.$this->getCode();
+        return $this->getStart()->format('d/m/Y');
     }
 }

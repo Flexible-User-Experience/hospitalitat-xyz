@@ -9,7 +9,7 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
 <body>
-{#<!-- Page Contents -->#}
+{# page contents #}
 <div class="pusher">
     <div class="ui inverted vertical masthead center aligned basic segment">
 
@@ -21,59 +21,61 @@
             </div>
         </div>
     </div>
-    {# section images #}
-    <div class="ui stackable three column vertically divided grid basic segment container">
+    {# flash section #}
+    <div class="ui stackable one column vertically divided grid basic segment container">
         <div class="row">
             <div class="column">
-                <img class="ui big bordered fluid image" src="https://semantic-ui.com/examples/assets/images/wireframe/white-image.png">
-            </div>
-            <div class="column">
-                <img class="ui big bordered fluid image" src="https://semantic-ui.com/examples/assets/images/wireframe/white-image.png">
-            </div>
-            <div class="column">
-                <img class="ui big bordered fluid image" src="https://semantic-ui.com/examples/assets/images/wireframe/white-image.png">
-            </div>
-        </div>
-    </div>
-    {# end images #}
-    <div class="ui stackable two column vertically divided grid basic segment container">
-        <div class="row">
-            <div class="column">
-                <div class="ui text container">
-                    <h3 class="ui header">{{ main_brand_title }}</h3>
-                    <p>Reserva una nit a la Torre de la carrova. Un emplaçament que efímerant proposa una
-                        experiència personal que és també part d'una peça artística.</p>
-                    <p>Podeu reservar una nit per a dues persones per a dormir, o visitar la torre, per
-                        veure les estrelles o per a concebir.</p>
+                <div class="ui container">
+                    {% for flash_message in app.session.flashBag.get('notice') %}
+                        <div class="ui success message">
+                            <div class="header"><i class="hand spock icon"></i> Formulari completat</div>
+                            <p>{{ flash_message }} <i class="smile icon"></i></p>
+                        </div>
+                    {% endfor %}
+                    {% for flash_message in app.session.flashBag.get('error') %}
+                        <div class="ui error message">
+                            <div class="header"><i class="bomb icon"></i> Error</div>
+                            <p>{{ flash_message }} <i class="smile icon"></i></p>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
     </div>
-
-    {% for flash_message in app.session.flashBag.get('notice') %}
-        <div class="ui success message">
-            <div class="header">Formulari Completat</div>
-            <p>{{ flash_message }}</p>
+    {# section images #}
+    <div class="ui stackable three column vertically divided grid basic segment container">
+        <div class="row">
+            <div class="column">
+                <img class="ui big bordered fluid image" src="{{ asset('bundles/app/img/image-1.jpg') | imagine_filter('765xY') }}">
+            </div>
+            <div class="column">
+                <img class="ui big bordered fluid image" src="{{ asset('bundles/app/img/image-2.jpg') | imagine_filter('765xY') }}">
+            </div>
+            <div class="column">
+                <img class="ui big bordered fluid image" src="{{ asset('bundles/app/img/image-3.jpg') | imagine_filter('765xY') }}">
+            </div>
         </div>
-    {% endfor %}
-    {% for flash_message in app.session.flashBag.get('error') %}
-        <div class="ui error message">
-            <div class="header">Error</div>
-            <p>{{ flash_message }}</p>
+    </div>
+    {# end images #}
+    <div class="ui stackable one column vertically divided grid basic segment container">
+        <div class="row">
+            <div class="column">
+                <div class="ui container">
+                    <h2 class="ui header">{{ main_brand_title }}</h2>
+                    <p style="color: red;">Sobre la propietat col·lectiva del patrimoni cultural. Hospitalitat és un projecte d'intervenció a les torres de la Carrova i Font de Quinto (Campredó) que proposa l'experiència participativa com a eina de reflexió.</p>
+                    <p>Del 15 de juliol al 15 d'agost podeu fer una reserva per passar la nit a La Torre de La Carrova i així recuperar o tergiversar l'ús per al qual està destinat aquest punt d'interès arquitectònic i històric. Es proposa així posar en valor la missió inicial de l'ordre Hospitalari de Sant Joan de Jerusalem, que tot i que se la recorda pel seu caràcter bèl·lic i defensiu. La seva funció més important era la d'acollir i auxiliar els pelegrins.</p>
+                    <p>L'acció de reservar la Torre de la Carrova implica formar part d'una intervenció artística com a subjecte i comporta acceptar les condicions habituals d'un allotjament turístic i també les de preservació del patrimoni cultural i històric. La reserva per passar una nit d'hotel suposa adquirir un compromís extraordinari amb el que és comunitari.</p>
+                </div>
+            </div>
         </div>
-    {% endfor %}
+    </div>
 </div>
-
+{# block body#}
 {% block body %}{% endblock %}
-
+{# javascripts section #}
 {% block javascripts %}
-    <script
-            src="https://code.jquery.com/jquery-3.1.1.min.js"
-            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-            crossorigin="anonymous">
-    </script>
+    <script src="{{ asset('jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('semantic/semantic.min.js') }}"></script>
 {% endblock %}
-
 </body>
 </html>
