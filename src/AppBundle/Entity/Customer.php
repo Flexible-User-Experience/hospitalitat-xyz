@@ -54,7 +54,7 @@ class Customer
      * @ORM\Column(name="nif", type="string", length=255, unique=true)
      * @Assert\NotBlank()
      * @Assert\Regex(
-     *     pattern="/\d{8}[A-Z]/",
+     *     pattern="/^\d{8}[A-Z]{1}$/",
      *     message="Format vàlid 8 dígits seguit d'una lletra majúscula (00000000X)"
      * )
      */
