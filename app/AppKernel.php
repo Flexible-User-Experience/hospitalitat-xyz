@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new Hampe\Bundle\ZurbInkBundle\HampeZurbInkBundle(),
             new Hautelook\AliceBundle\HautelookAliceBundle(),
             new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
+            new Liip\ImagineBundle\LiipImagineBundle(),
             new Kami\BookingBundle\KamiBookingBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             // App
